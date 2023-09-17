@@ -1,0 +1,262 @@
+
+.input-select,
+.input-text {
+	padding: 0.25em 0.5em;
+	border-radius: 0.125em;
+	box-sizing: border-box;
+  min-width: 5em;
+	
+  &:enabled {
+    border: 1px inset $c-border;
+    background: #fff;
+  }
+  
+	&:focus {
+		border-style: solid;
+		box-shadow: 0 0 0.125em rgba(0, 0, 0, 0.5);
+    outline: 0;
+    border-color: $c-primary;
+	}
+  
+  &:focus-visible {
+    outline: 0.125em dotted $c-primary;
+  }
+  
+  &:invalid {
+    border-color: $c-danger;
+  }
+}
+
+textarea.input-text {
+  resize: vertical;
+  width: 100%;
+  
+  &[rows] {
+    resize: none;
+  }
+  
+  &:not([rows]) {
+    height: 6em;
+    min-height: 6em;
+  }
+}
+
+.form__elem__errors,
+.form-errors {
+	list-style: none;
+	padding: 0;
+	border: 1px solid #f00;
+	background: #fdd;
+	padding: 0.5em 1em;
+}
+
+.form__elem__errors {
+	margin: 0;
+	font-size: 0.6em;
+}
+
+.cb-box {
+	display: inline-block;
+	padding: 0.125em 0.5em;
+}
+
+.inline-search {
+  
+  [type="search"] {
+    border-radius: 5px 0 0 5px;
+    border: 1px solid transparent;
+  }
+  
+  [type="submit"] {
+    border-radius: 0 5px 5px 0;
+    border: 1px solid transparent;
+    background-color: $c-primary;
+    color: $c-primary-rev;
+    font: 100 0/0 serif;
+    
+    .ico {
+      
+      font: $f-regular 2rem/1 $f-ico;
+      display: block;
+      padding: 0.25em;
+    }
+  }
+}
+
+.inline-search__main {
+  display: grid;
+  grid-template-columns: 1fr min-content;
+  position: relative;
+  
+  label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 0.75em;
+    
+    transition: transform 0.2s;
+    transform: translate(0, -1em);
+    background: $white;
+    padding: 0.25em 1em;
+    border-radius: 5px 5px 0 0;
+  }
+
+  :not(:valid):not(:focus) + label {
+    transform: translate(1em, 1em); 
+  }
+}
+
+.form {
+  label {
+    &::first-letter {
+      text-transform: uppercase;
+    }
+  }
+}
+
+.form--simple {
+  fieldset {
+    border: 0;
+    padding: 0;
+    margin: 0;
+  }
+  
+  legend {
+    width: 100%;
+    text-align: center;
+    margin: 0 0 0.5em;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  
+  label {
+    display: block;
+    font-size: 0.9em;
+  }
+  
+  .btn,
+  .input-text {
+    width: 100%;
+  }
+  
+  .form__elem {
+    margin: 0.5em 0;
+  }
+}
+
+.form--default {
+  
+  .radio-label {
+    display: inline-block;
+    border: 1px solid $c-border;
+    
+    background: $white;
+    padding: 0.25em 0.5em;
+    
+    &:not(:first-child) {
+      border-left: 0;
+    }
+    &:first-child {
+      border-radius: 0.25em 0 0 0.25em;
+    }
+    &:last-child {
+      border-radius: 0 0.25em 0.25em 0;
+    }
+  }
+  
+  > .form__fieldset {
+    border: 0;
+    padding: 0;
+    margin: 0;
+  }
+    
+  .form__fieldset-main {
+    
+    .form__fieldset {
+      background: #f0f0f0;
+      border: 0;
+      margin: 0 0 1em;
+      padding: 0 1em;
+      border-bottom: 1px solid $c-border;
+      
+      &:focus-within {
+        background: mix($c-primary, $white, 5%);
+      }
+      
+      legend {
+        text-transform: lowercase;
+        font-variant: small-caps;
+        background: $c-secondary;
+        color: $c-secondary-rev;
+        display: inline-block;
+        padding: 0.25em 1em;
+        margin: 0 0 1em;
+        letter-spacing: 0.1em;
+        box-shadow: 0.05em 0.05em 0.1em currentColor;
+        
+        &::first-letter {
+          font-size: 1.2em;
+        }
+      }
+    }
+  }
+  
+  .form__elem {
+    display: grid;
+    grid-template-columns: 12em 1fr;
+    gap: 0 0.5em;
+    margin: 0 0 0.5em;
+    
+    label {
+      text-align: right;
+    }
+  }
+}
+
+.form--f1 {
+  
+  .input-select,
+  .input-text {
+    width: 100%;
+  }
+  
+  .form__elem {
+    
+    display: flex;
+    
+    > label { width: 10em; }
+    
+    margin: 0 0 0.5em;
+  }
+}
+
+.form--zf {
+  
+  .errors {
+    border: 2px solid $c-danger;
+    background: mix($c-danger, $c-light, 5%);
+    padding: 0.25em 0.5em;
+    font-size: 0.75em;
+    list-style: none;
+  }
+  
+  .zend_form {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 0.5em 1em;
+  }
+  
+  .input-text {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.5em 1em;
+    border: 1px inset #8e8e8e;
+    border-radius: 0.25em;
+  }
+  
+  dt,
+  dd {
+    margin: 0;
+    padding: 0;
+  }
+}

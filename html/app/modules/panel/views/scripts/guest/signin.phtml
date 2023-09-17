@@ -1,0 +1,11 @@
+<?php
+/** @var \App\View\View $this */
+
+$this->layout()->setLayout('guest');
+$form = $this->form;
+
+$this->headTitle('Sign in');
+
+?>
+
+<?= $form->setAttrib('class', 'form form--simple')->render() ?>

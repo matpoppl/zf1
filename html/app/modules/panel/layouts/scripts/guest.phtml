@@ -1,0 +1,26 @@
+<?php
+/** @var Zend_View $this */
+$this->headLink()->appendStylesheet('/static/css/guest.css');
+
+?>
+<?= $this->doctype() ?>
+<html lang="<?= Zend_Registry::get('Zend_Locale')->getLanguage() ?>">
+<head>
+<script src="//zf1.pop-pc.lan:35729/livereload.js"></script>
+<?= $this->headMeta() ?>
+<?= $this->headTitle('App')->enableTranslation()->setAutoEscape(true)->setAutoEscape()->setSeparator(' / ') ?>
+<?= $this->headLink() ?>
+<?= $this->headStyle() ?>
+<?= $this->headScript() ?>
+</head>
+<body>
+
+<div class="site-main">
+    <main class="site-main__main">
+    	<?= $this->layout()->content ?>
+    </main>
+</div>
+
+<?= $this->inlineScript() ?>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<?php
+/** @var \App\View\View $this */
+/** @var \Zend_Translate_Adapter $translator */
+
+$translator = $this->translate()->getTranslator();
+
+$locales = array_map('trim', $this->services('sites')->get()->getLocales());
+
+$keys = [];
+$all = [];
+foreach ($locales as $locale) {
+    if ($translator->isAvailable($locale)) {
+        $all[$locale] = $translator->getMessages($locale);
+        $keys += array_keys($all[$locale]);
+    } else {
+        $all[$locale] = [];
+    };
+}
+
+natsort($keys);
+
+?>
+
+<?= $this->form->setAttrib('class', 'form form--f1')->render() ?>
+
+<form method="post" class="form form--f1">
+<fieldset><legend><?= $this->translate('Translations') ?></legend>
+<table>
+	<thead>
+		<tr>
+			<th><?= $this->translate('Translation key') ?></th>
+<?php foreach(array_keys($all) as $locale): ?>
+			<th><?= $locale ?></th>
+<?php endforeach; ?>
+		</tr>
+	</thead>
+	
+	<tbody>
+<?php foreach($keys as $key): ?>
+		<tr>
+			<th><?= $this->escape($key) ?></th>
+<?php foreach($locales as $locale): $trans = $all[$locale][$key] ?? null; ?>
+			<td><input name="<?= $locale ?>[<?= $this->escape($key) ?>]" value="<?= $this->escape($trans) ?>" class="input-text" type="text" maxlength="300" /></td>
+<?php endforeach; ?>
+		</tr>
+<?php endforeach; ?>
+	</tbody>
+</table>
+<button type="submit" name="submit" class="btn btn--primary" value="1"><?= $this->translate('save') ?></button>
+</fieldset>
+</form>

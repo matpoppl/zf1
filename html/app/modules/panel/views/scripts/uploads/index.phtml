@@ -1,0 +1,21 @@
+<?php
+/** @var \App\View\View $this */
+
+?>
+
+<ul>
+	<?php foreach($this->attachments as $attachment): $thumb = $this->uploadImagePresenter->prepare($attachment['path']); ?>
+	<li>
+		<span>
+			<a href="<?= $this->url(['id' => $attachment['id'], 'controller' => 'uploads'], 'panel/edit')?>">edit</a>
+			<a href="<?= $this->url(['id' => $attachment['id'], 'controller' => 'uploads'], 'panel/delete')?>">del</a>
+		</span>
+		<?= $attachment['type'] ?>
+		<?= $attachment['mime'] ?>
+
+		<a href="<?= $this->paths->get($attachment['path']) ?>" target="_blank">
+			<img src="<?= $thumb->path ?>" width="<?= $thumb->width ?>" height="<?= $thumb->height ?>" loading="lazy" />
+		</a>
+	</li>
+	<?php endforeach; ?>
+</ul>

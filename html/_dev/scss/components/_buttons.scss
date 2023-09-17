@@ -1,0 +1,32 @@
+
+.btn {
+	display: inline-block;
+	padding: 0.5em 2em;
+	border: 1px outset transparent;
+	box-sizing: border-box;
+	
+	text-align: center;
+	text-decoration: none;
+  font-variant: small-caps;
+	border-radius: 0.25em;
+  letter-spacing: 0.1em;
+	
+	box-shadow: 0.125em 0.125em 0.125em rgba(0, 0, 0, 0.5);
+	
+	transition: box-shadow 0.2s;
+	
+	&:hover {
+		box-shadow: none;
+	}
+}
+
+.btn--default2 {
+	border-color: #aaa;
+	background: #fff;
+}
+
+.btn--primary {
+	border-color: lighten($c-primary, 10%);
+	background: $c-primary;
+	color: $c-primary-rev;
+}

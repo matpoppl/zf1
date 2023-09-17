@@ -1,0 +1,44 @@
+
+$f-poppins: (
+  100: 'Poppins-Thin.ttf',
+  200: 'Poppins-ExtraLight.ttf',
+  300: 'Poppins-Light.ttf',
+  400: 'Poppins-Regular.ttf',
+  500: 'Poppins-Medium.ttf',
+  600: 'Poppins-SemiBold.ttf',
+  700: 'Poppins-Bold.ttf',
+  800: 'Poppins-ExtraBold.ttf',
+  900: 'Poppins-Black.ttf',
+);
+
+$f-comfortaas: (
+	300: Comfortaa-Light,
+	400: Comfortaa-Regular,
+	500: Comfortaa-Medium,
+	600: Comfortaa-SemiBold,
+	700: Comfortaa-Bold,
+);
+
+@each $weight, $name in $f-comfortaas {
+
+	@font-face {
+		font-family: Comfortaa;
+		font-weight: $weight;
+		font-style: normal;
+		font-display: swap;
+		src: url(../font/#{$name}.ttf) format('truetype');
+	}
+
+}
+
+@each $weight, $name in $f-poppins {
+
+  @font-face {
+    font-family: Poppins;
+    font-weight: $weight;
+    font-style: normal;
+    font-display: swap;
+    src: url(../font/#{$name}) format('truetype');
+  }
+
+}

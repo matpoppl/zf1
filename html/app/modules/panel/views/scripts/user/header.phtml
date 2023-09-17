@@ -1,0 +1,22 @@
+<?php
+/** @var \App\View\View $this */
+
+?>
+
+<header class="panel-page-header">
+
+	<h1 class="h-panel"><?= $this->translate('Panel users') ?></h1>
+	
+	<nav>
+		<a href="<?= $this->url(['id' => 0, 'controller' => 'user'], 'panel/edit') ?>" class="btn btn--primary">+ <?= $this->translate('Add') ?></a>
+	</nav>
+
+	<form action="#" method="get" class="inline-search">
+		<div class="inline-search__main">
+			<input type="search" name="q" id="inline-search-q" class="input-text" required />
+			<label for="inline-search-q"><?= $this->translate('Search phrase') ?></label>
+			<button type="submit"><span class="ico">&telrec;</span> <?= $this->translate('Search') ?></button>
+		</div>
+	</form>
+
+</header>

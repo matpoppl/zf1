@@ -1,0 +1,20 @@
+
+article, section, header, footer, nav, aside {
+	display: block;
+}
+
+table, input, button, textarea, select,
+em, address {
+	font: inherit;
+}
+
+label, button {
+	cursor: pointer;
+}
+
+button, input {
+	box-shadow: none;
+	outline: 0;
+}
+
+a { color: inherit; }

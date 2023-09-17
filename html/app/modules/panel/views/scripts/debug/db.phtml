@@ -1,0 +1,37 @@
+<?php
+/** @var \App\View\View $this */
+
+?>
+
+<table class="tab-specs">
+	<tbody>
+		<?php foreach($this->dbOptions as $name => $value): ?>
+		<tr>
+			<th><?= $this->escape($name) ?></th>
+			<td><?= $this->escape($value) ?></td>
+		</tr>
+		<?php endforeach; ?>
+
+		<tr>
+			<th rowspan="<?= 1 + count($this->dbTables) ?>"><?= $this->translate('tables') ?></th>
+			<th><?= $this->translate('table name') ?></th>
+		</tr>
+		<?php foreach($this->dbTables as $name): ?>
+		<tr>
+			<td><?= $this->escape($name) ?></td>
+		</tr>
+		<?php endforeach; ?>
+
+		<?php if(count($this->dbVars) > 0): ?>
+    		<tr>
+    			<th colspan="2"><?= $this->translate('variables') ?></th>
+    		</tr>
+    		<?php foreach($this->dbVars as $name => $value): ?>
+    		<tr>
+    			<th><?= $this->escape($name) ?></th>
+    			<td><?= $this->escape($value) ?></td>
+    		</tr>
+    		<?php endforeach; ?>
+		<?php endif; ?>
+	</tbody>
+</table>

@@ -1,0 +1,9 @@
+class Simple
+{
+	public $foo = true;
+	
+	public $bar = 1.2;
+	
+	public $baz = 'value';
+	
+}

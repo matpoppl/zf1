@@ -1,0 +1,12 @@
+{
+    "name": "matpoppl/pdb",
+    "description": "DB abstraction layer",
+    "type": "library",
+    "license": "MIT",
+    "minimum-stability": "stable",
+    "autoload": {
+		"psr-4": {
+			"matpoppl\\Pdb\\": "src"
+		}
+	}
+}

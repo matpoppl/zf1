@@ -1,0 +1,10 @@
+<?php
+/** @var Zend_View $this */
+?>
+
+<?php if(isset($this->exception)): ?>
+	<p><?= $this->translate($this->exception->getMessage()) ?></p>
+	<pre style="font: 100 0.9rem/1.4 monospace;background:#eee;overflow:auto;"><?= $this->exception->getTraceAsString() ?></pre>
+<?php else: ?>
+	<p><?= $this->translate('An unexpected error occurred. Please try again later.') ?></p>
+<?php endif; ?>

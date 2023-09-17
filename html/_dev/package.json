@@ -1,0 +1,23 @@
+{
+  "name": "@matpoppl/zf1",
+  "version": "0.0.1",
+  "description": "ui",
+  "type": "module",
+  "browserslist": [
+    "Firefox ESR"
+  ],
+  "devDependencies": {
+    "@babel/core": "^7.22.20",
+    "@babel/preset-env": "^7.22.20",
+    "autoprefixer": "^10.4.15",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-livereload": "^4.0.2",
+    "gulp-postcss": "^9.0.1",
+    "gulp-sass": "^5.1.0",
+    "postcss": "^8.4.29",
+    "sass": "^1.67.0",
+    "stylelint": "^15.10.3",
+    "stylelint-csstree-validator": "^3.0.0"
+  }
+}

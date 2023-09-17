@@ -1,0 +1,43 @@
+<?php
+/** @var \App\View\View $this */
+$this->headLink()->appendStylesheet('/static/css/main.css');
+$this->inlineScript()->appendFile('/static/js/performance.js', null, ['defer'=>true]);
+
+?>
+<?= $this->doctype() ?>
+<html lang="<?= Zend_Registry::get('Zend_Locale')->getLanguage() ?>">
+<head>
+<?= $this->headMeta() ?>
+<?= $this->headTitle() ?>
+<?= $this->headLink() ?>
+<?= $this->headStyle() ?>
+<?= $this->headScript() ?>
+
+<?= $this->navigation($this->services('menuBuilder')->getContainer())->links()->render() ?>
+
+</head>
+<body>
+
+<nav class="site-nav">
+    <?= $this->navigation()->menu()->render() ?>
+
+    <ul class="site-nav__langs">
+    <?php $locale = $this->translate()->getLocale();
+    foreach($this->translate()->getTranslator()->getList() as $itemLocale): ?>
+    	<li>
+    		<?php if($itemLocale === $locale): ?>
+    			<b><?= $itemLocale ?></b>
+    		<?php else: ?>
+    			<a href="<?= $this->url(['locale' => $itemLocale], 'page/locale/change'); ?>"><?= $itemLocale ?></a>
+    		<?php endif; ?>
+    	</li>
+    <?php endforeach; ?>
+    </ul>
+
+</nav>
+
+<?= $this->navigation()->breadcrumbs()->render() ?>
+<?= $this->layout()->content ?>
+<?= $this->inlineScript() ?>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<?php
+/** @var \App\View\View $this */
+
+?>
+
+<a href="<?= $this->url(['id' => 0, 'controller' => 'page'], 'panel/edit') ?>" class="btn btn--primary">+ <?= $this->translate('add') ?></a>
+
+<?php if(count($this->rows) > 0): ?>
+<form method="post">
+<table class="t-list">
+	<thead>
+		<tr>
+			<th><input type="checkbox" /></th>
+			<th class="col-name"><?= $this->translate('doc') ?></th>
+			<th><?= $this->translate('edit') ?></th>
+			<th><?= $this->translate('delete') ?></th>
+			<th><?= $this->translate('drag') ?></th>
+		</tr>
+	</thead>
+	<tbody>
+		<?php foreach($this->rows as $row): ?>
+		<tr>
+			<td>
+				<label class="cb-box">
+					<input type="checkbox" name="id[]" value="<?= $row->id ?>" />
+				</label>
+			</td>
+			<th class="col-name"><a href="<?= $this->url(['id' => $row->id, 'controller' => 'page'], 'panel/edit') ?>"><?= $row->name ?></a></th>
+			<td><a href="<?= $this->url(['id' => $row->id, 'controller' => 'page'], 'panel/edit') ?>"><span class="ico-box">&vellip;</span></a></td>
+			<td>
+				<button class="ico-box js-confirm" type="submit" name="id[]" value="<?= $row->id ?>"
+					data-confirm="delete-confirm"
+					formaction="<?= $this->url(['controller' => 'page'], 'panel/delete') ?>">
+					&Cross;
+				</button>
+			</td>
+			<td><span class="drag-handle">&Colon;</span></td>
+		</tr>
+		<?php endforeach; ?>
+	</tbody>
+</table>
+<?= $this->security()->renderCSRFElement() ?>
+</form>
+<?php else: ?>
+<h4>&mdash; <?= $this->translate('empty') ?> &mdash;</h4>
+<?php endif; ?>

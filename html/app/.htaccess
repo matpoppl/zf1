@@ -1,0 +1,6 @@
+# Apache 2.4
+Require all denied
+
+# Apache 2.2 @DEPRECATED
+Order allow,deny
+Deny from All

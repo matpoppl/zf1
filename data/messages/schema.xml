@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<USaddress xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="schema.xsd">
+  <street1></street1>
+  <street2></street2>
+  <city></city>
+  <state></state>
+  <zip></zip>
+</USaddress>

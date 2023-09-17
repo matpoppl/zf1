@@ -1,0 +1,25 @@
+<?php
+
+return array(
+  'New translation' => 'Nowe tłumaczenie',
+  'Sign in form' => 'Logowanie',
+  'Sign out' => 'Wyloguj',
+  'Translation' => 'Tłumaczenie',
+  'Translation key' => 'Fraza',
+  'Translations' => 'Tłumaczenia',
+  'Uploads' => 'Pliki',
+  'Users' => 'Użytkownicy',
+  'password' => 'hasło',
+  'profile (%s)' => 'Profil (%s)',
+  'remember me' => 'zapamiętaj logowanie',
+  'save' => 'zapisz',
+  'saved' => 'zapisano',
+  'sign in' => 'zaloguj',
+  'username' => 'nazwa użytkownika',
+  'add' => 'dodaj',
+  'entity name' => 'nazwa',
+  'entity content' => 'treść',
+  'menus' => 'menu',
+  'edit' => 'edycja',
+  'delete' => 'usuń',
+);

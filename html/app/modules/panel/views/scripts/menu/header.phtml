@@ -1,0 +1,25 @@
+<?php
+/** @var \App\View\View $this */
+
+?>
+
+<header class="panel-page-header">
+
+	<h1 class="h-panel">
+		<a href="<?= $this->url([], 'panel/menus') ?>">Menus</a>
+	</h1>
+	
+	<nav>
+		<a href="<?= $this->url(['id' => 0, 'controller' => 'menu'], 'panel/edit') ?>" class="btn btn--primary">+ <?= $this->translate('add') ?></a>
+		<a href="<?= $this->url([], 'panel/menus') ?>" class="btn btn--primary"><?= $this->translate('show menus') ?></a>
+	</nav>
+
+	<form action="#" method="get" class="inline-search">
+		<div class="inline-search__main">
+			<input type="search" name="q" id="inline-search-q" class="input-text" required />
+			<label for="inline-search-q"><?= $this->translate('Search phrase') ?></label>
+			<button type="submit"><span class="ico">&telrec;</span> <?= $this->translate('search') ?></button>
+		</div>
+	</form>
+
+</header>

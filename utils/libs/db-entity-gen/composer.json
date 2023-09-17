@@ -1,0 +1,12 @@
+{
+	"name" : "matpoppl/db-entity-generator",
+	"description" : "Database entity generator",
+	"type" : "library",
+	"license" : "MIT",
+	"minimum-stability" : "stable",
+	"autoload" : {
+		"psr-4" : {
+			"matpoppl\\DbEntityGenerator\\" : "src"
+		}
+	}
+}

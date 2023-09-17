@@ -1,0 +1,46 @@
+
+ul.message {
+	list-style: none;
+}
+
+.message {
+	border: 2px solid transparent;
+	padding: 0.5em 1em;
+	margin: 1em 0;
+}
+
+.message--error {
+	border-color: #f00;
+	background: #faa;
+}
+
+.message--success {
+	border-color: #0f0;
+	background: #afa;
+}
+
+.message--notice {
+	border-color: #f84;
+	background: #f84;
+}
+
+.message--info {
+	border-color: #00f;
+	background: #aaf;
+}
+
+[role="status"].js-status {
+  position: fixed;
+  z-index: 1;
+  top: 1em;
+  left: 1em;
+  box-shadow: 0.125em 0.125em 0.25em rgba(0, 0, 0, 0.25);
+  
+  animation: status-popup 0.25s;
+  animation-fill-mode: both;
+}
+
+@keyframes status-popup {
+  from { transform: translateY(-200%); }
+  to { transform: translateY(0); }
+}

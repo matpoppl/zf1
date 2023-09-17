@@ -1,0 +1,22 @@
+<?php
+/** @var \App\View\View $this */
+/** @var \App\Menu\Entity\MenuEntity menu */
+/** @var Zend_Form $form */
+
+?>
+
+<header class="panel-page-header">
+
+	<h1 class="h-panel">Menu</h1>
+	
+	<nav>
+		<a href="<?= $this->url(['parent' => 0, 'id' => 0], 'panel/menu/node') ?>" class="btn btn--primary">+ <?= $this->translate('Add') ?></a>
+	</nav>
+
+</header>
+
+<div class="breadcrumbs">
+<?= $this->navigation()->breadcrumbs()->render() ?>
+</div>
+
+<?= $this->form->setAttribs(['class' => 'form form--default'])->render() ?>

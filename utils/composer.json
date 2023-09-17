@@ -1,0 +1,12 @@
+{
+    "name": "test/zf1-utils",
+	"description" : "ZF1 playground local utils",
+    "type": "project",
+    "license": "BSD-3-Clause",
+    "minimum-stability": "stable",
+    "autoload-dev": {
+        "psr-4": {
+		  "matpoppl\\DbEntityGenerator\\" : "libs/db-entity-gen/src"
+        }
+    }
+}

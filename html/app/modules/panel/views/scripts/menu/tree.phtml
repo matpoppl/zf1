@@ -1,0 +1,55 @@
+<?php
+/** @var \App\View\View $this */
+/** @var \App\Menu\Entity\MenuEntity menu */
+
+?>
+
+<header class="panel-page-header">
+
+	<h1 class="h-panel">Menu</h1>
+	
+	<nav>
+		<a href="<?= $this->url(['sid' => $this->menuTree->sid, 'parent' => $this->menuTree->parent, 'type' => 'page', 'id' => 0], 'panel/menu/node') ?>"
+			class="btn btn--primary">+ <?= $this->translate('add') .': '. $this->translate('page') ?></a>
+	</nav>
+
+</header>
+
+
+<?php if(count($this->rows) > 0): ?>
+<form method="post">
+<table class="t-list">
+	<thead>
+		<tr>
+			<th><input type="checkbox" /></th>
+			<th class="col-name"><?= $this->translate('menu') ?></th>
+			<th><?= $this->translate('edit') ?></th>
+			<th><?= $this->translate('delete') ?></th>
+		</tr>
+	</thead>
+	<tbody>
+		<?php foreach($this->rows as $row): ?>
+		<tr>
+			<td>
+				<label class="cb-box">
+					<input type="checkbox" name="id[]" value="<?= $row->id ?>" />
+				</label>
+			</td>
+			<th class="col-name"><a href="<?= $this->url(['sid' => 'main', 'parent' => $row->id], 'panel/menu/tree') ?>"><?= $row->label ?></a></th>
+			<td><a href="<?= $this->url(['parent' => $row->parent, 'id' => $row->id, 'type' => 'page'], 'panel/menu/node') ?>"><span class="ico-box">&vellip;</span></a></td>
+			<td>
+				<button class="ico-box js-confirm" type="submit" name="id[]" value="<?= $row->id ?>"
+					data-confirm="delete-confirm"
+					formaction="<?= $this->url(['controller' => 'menu'], 'panel/delete') ?>">
+					&Cross;
+				</button>
+			</td>
+		</tr>
+		<?php endforeach; ?>
+	</tbody>
+</table>
+<?= $this->security()->renderCSRFElement() ?>
+</form>
+<?php else: ?>
+<h4>&mdash; <?= $this->translate('empty') ?> &mdash;</h4>
+<?php endif; ?>

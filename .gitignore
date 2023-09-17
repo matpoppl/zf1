@@ -1,0 +1,13 @@
+/.settings/
+/_tmp/
+/html/_dev/font/
+/html/_dev/node_modules/
+/html/static/
+/html/app/var/
+/html/app/vendor/
+/utils/vendor/
+/.buildpath
+/.project
+/*.log
+/*.dist.php
+/*.cache

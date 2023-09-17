@@ -1,0 +1,59 @@
+<?php
+/** @var \App\View\View $this */
+$this->headLink()->appendStylesheet('/static/css/main.css');
+$this->inlineScript()->appendFile('/static/js/performance.js', null, ['defer'=>true]);
+//$this->inlineScript()->appendFile('/static/js/main.js', null, ['defer'=>true, 'type'=>'module']);
+
+$this->registerHelper(new \App\Auth\ViewHelper(), 'identity');
+?>
+<?= $this->doctype() ?>
+<html lang="<?= Zend_Registry::get('Zend_Locale')->getLanguage() ?>">
+<head>
+<script src="//zf1.pop-pc.lan:35729/livereload.js"></script>
+<?= $this->headMeta() ?>
+<?= $this->headTitle() ?>
+<?= $this->headLink() ?>
+<?= $this->headStyle() ?>
+<?= $this->headScript() ?>
+</head>
+<body>
+<div class="panel-layout">
+    <nav class="panel-layout__nav site-nav">
+    	<?= $this->navigation($this->services('menuBuilder')->getContainer())->setTranslator($this->translate()->getTranslator())->menu()->render() ?>
+    
+    	<ul class="navigation">
+    		<li><a href="<?= $this->url([], 'panel/profile') ?>"><?= $this->translate('profile (%s)', [$this->identity()->getIdentity()->getId()]) ?></a></li>
+    		<li><a href="<?= $this->url([], 'panel-signout') ?>"><?= $this->translate('Sign out') ?></a></li>
+    	</ul>
+    	
+    	<ul class="ls-locale">
+    		<?php $currentLang = $this->i18n()->getLocale()->getLanguage();
+    		foreach($this->services('sites')->get()->getLocales() as $locale): ?>
+    		<?php if($currentLang === $locale->getLanguage()): ?>
+    		<li><b><?= $locale->getRegion() ?></b></li>
+    		<?php else: ?>
+    		<li><a href="<?= $this->url(['lang' => $locale->getLanguage()], 'panel/home') ?>"><?= $locale->getRegion() ?></a></li>
+    		<?php endif; ?>
+    		<?php endforeach; ?>
+    	</ul>
+    	
+    </nav>
+    <main class="panel-layout__main">
+    <div class="panel-layout__main__content">
+    <?php foreach ($this->flashMessenger() as $ns => $messages): ?>
+    <ul class="message message--<?= $ns ?> alert alert-<?= $ns ?> js-status" role="status">
+    	<?php foreach ($messages as $message): ?>
+    	<li><?= $this->translate($message) ?></li>
+    	<?php endforeach; ?>
+    </ul>
+    <?php endforeach; ?>
+    
+    <?= $this->layout()->content ?>
+    </div>
+    </main>
+</div>
+
+<script type="module" defer src="/static/js/main.js"></script>
+<?= $this->inlineScript() ?>
+</body>
+</html>

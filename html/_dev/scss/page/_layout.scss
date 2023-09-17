@@ -1,0 +1,30 @@
+
+.page-nav {
+	display: flex;
+	justify-content: space-between;
+	
+	background: #2e6b91;
+	padding: 0.25em 0.125em;
+	
+	> ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: flex;
+	}
+	
+	b,
+	a {
+		display: block;
+		padding: 0.125em 0.5em;
+		margin: 0 0.125em;
+		background: rgba(255, 255, 255, 0.75);
+		
+		border-radius: 0.25em;
+		text-decoration: none;
+		
+		&::first-letter {
+			text-transform: uppercase;
+		}
+	}
+}

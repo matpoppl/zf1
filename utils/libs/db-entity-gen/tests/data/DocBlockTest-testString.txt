@@ -1,0 +1,5 @@
+/**
+ * @param string $foo In first
+ * @var int|NULL $bar In second
+ * @return bool Out
+ */

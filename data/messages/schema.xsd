@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema">
+	<element name="USaddress">
+		<complexType>
+			<sequence>
+				<element name="street1" type="string" minOccurs="0" />
+				<element name="street2" type="string" minOccurs="0" />
+				<element name="city" type="string" />
+				<element name="state" type="string" />
+				<element name="zip" type="string" minOccurs="0" />
+			</sequence>
+		</complexType>
+	</element>
+</schema>

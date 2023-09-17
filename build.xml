@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="zf1" basedir=".">
+
+  <property environment="env"/>
+  <property name="dir-app" location="html/app"/>
+  <property name="dir-scripts" location="utils/scripts"/>
+  
+	<target name="generate:entities:db">
+		<sql driver="org.mariadb.jdbc.Driver"
+			url="jdbc:mariadb://127.0.0.1:3306/zf1" userid="${env.DB_USER}" password="${env.DB_PASS}">
+
+			<path>
+				<fileset dir="data/sql">
+					<include name="*.sql" />
+				</fileset>
+			</path>
+		</sql>
+	</target>
+
+  <target name="generate:entities" depends="generate:entities:db">
+    <exec executable="php" dir="${dir-scripts}">
+      <arg value="generate-entity.php"/>
+    </exec>
+  </target>
+
+  <target name="composer:validate">
+    <exec executable="composer.cmd" dir="${dir-app}">
+      <arg value="validate" />
+    </exec>
+  </target>
+
+  <target name="composer:update">
+    <exec executable="composer.cmd" dir="${dir-app}">
+      <arg value="update" />
+    </exec>
+  </target>
+
+  <target name="composer:autoload">
+    <exec executable="composer.cmd" dir="${dir-app}">
+      <arg value="dump-autoload" />
+    </exec>
+    <exec executable="composer.cmd" dir="utils">
+      <arg value="dump-autoload" />
+    </exec>
+  </target>
+
+</project>

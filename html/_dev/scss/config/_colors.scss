@@ -1,0 +1,44 @@
+
+$red: #f00;
+$green: #0f0;
+$yellow: #ff0;
+$orange: #f83;
+
+$white: #fff;
+$black: #000;
+$blue: #0080c0;
+
+$grey-lightest: #eee;
+$grey-lighter: #ddd;
+$grey-light: #bbb;
+$grey: #aaa;
+$grey-dark: #777;
+$grey-darker: #444;
+$grey-darkest: #111;
+
+$c-primary: #1b262c;
+$c-primary-rev: $white;
+
+$c-secondary: #bbe1fa;
+$c-secondary-rev: #1b262c;
+$c-tertiary: #bbe1fa;
+$c-tertiary-rev: $white;
+
+$c-font: $black;
+$c-border: $grey;
+
+$c-light: #3282b8;
+$c-light-rev: #1b262c;
+$c-dark: #1b262c;
+$c-dark-rev: #bbe1fa;
+
+$c-danger: $red;
+$c-warning: $orange;
+$c-notice: $blue;
+$c-success: $green;
+
+:root {
+  --c-primary: #{$c-primary};
+  --c-font: #{$c-font};
+  --c-border: #{$c-border};
+}

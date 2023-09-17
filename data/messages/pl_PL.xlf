@@ -1,0 +1,37 @@
+<!-- xliff-its-example.xlf: Example file that shows several features of
+using ITS 2.0 as part of XLIFF 2.1
+Version: 0.2.1 
+Date: 04 April 2017 -->
+
+<xliff version="2.1" xmlns="urn:oasis:names:tc:xliff:document:2.0"
+    srcLang="en" trgLang="pl"
+    schemaLocation="default http://docs.oasis-open.org/xliff/xliff-core/v2.1/os/schemas/xliff_core_2.0.xsd"
+    xmlns:its="http://www.w3.org/2005/11/its" its:version="2.0"
+    xmlns:itsm="urn:oasis:names:tc:xliff:itsm:2.1">
+  <!-- Each unit in the file element shows one ITS data category. -->
+  <!-- The its:annotatorsRef attribute inherits through the whole file
+      but is only relevant for some elements-->
+  <file id="f1" its:annotatorsRef="allowed-characters|http://example.com/myAllowedCharactersAnnotationTool
+                terminology|http://example.com/mytermTool
+                localization-quality-issue|http://example.com/anotherQualityChecker">
+  <skeleton href="Graphic Example.psd.skl"/>
+  <unit id="1">
+   <segment>
+    <source>yes</source>
+    <target>tak</target>
+   </segment>
+  </unit>
+  <unit id="2">
+   <segment>
+    <source>save</source>
+    <target>zapisz</target>
+   </segment>
+  </unit>
+  <unit id="3">
+   <segment>
+    <source>open</source>
+    <target>otwórz</target>
+   </segment>
+  </unit>
+ </file>
+</xliff>
